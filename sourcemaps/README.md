@@ -169,8 +169,10 @@ It's through this fairly convoluted process that your browser (assuming it's one
 
 ### Chrome
 
-![](https://github.com/Rich-Harris/vlq/blob/master/sourcemaps/Chrome.png)
+<img src='https://github.com/Rich-Harris/vlq/blob/master/sourcemaps/Chrome.png'>
 
 ### Firefox
+
+<img src='https://github.com/Rich-Harris/vlq/blob/master/sourcemaps/Firefox.png'>
 
 You can try this for yourself by cloning this repo and opening the `sourcemaps/index.html` file.
