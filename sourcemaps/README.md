@@ -100,13 +100,13 @@ Each segment has 4 *fields* in this case, though the [spec](https://docs.google.
 We can now decode our mappings a bit further:
 
 ```js
-var sourceFileIndex = 0,
-    sourceCodeLine = 0,
-    sourceCodeColumn = 0,
-    nameIndex = 0;
+var sourceFileIndex = 0,   // second field
+    sourceCodeLine = 0,    // third field
+    sourceCodeColumn = 0,  // fourth field
+    nameIndex = 0;         // fifth field
 
 decoded = decoded.map( function ( line ) {
-  var generatedCodeColumn = 0; // reset each time
+  var generatedCodeColumn = 0; // first field - reset each time
 
   return line.map( function ( segment ) {
     var result;
