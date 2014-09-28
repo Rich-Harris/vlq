@@ -8,6 +8,8 @@
 	"ignore": [
 		".*",
 		"*.json",
-		"test"
+		"test",
+		"sourcemaps",
+		"README.md"
 	]
 }
