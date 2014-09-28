@@ -25,6 +25,7 @@ It would get transpiled into this:
 
 And CoffeeScript would (if you asked it to) generate a sourcemap like this:
 
+**helloworld.js.map**
 ```js
 {
   "version": 3,
