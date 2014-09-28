@@ -6,7 +6,7 @@ This library doesn't include any special magic for dealing with source maps, jus
 AAAA;AAAA,EAAA,OAAO,CAAC,GAAR,CAAY,aAAZ,CAAA,CAAA;AAAA
 ```
 
-...into an array of mappings. (A source map is a JSON object with a number of properties, including `mappings`, which is a string like the one above. [You can fine the spec here.](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&pli=1&pli=1))
+...into an array of mappings. (A source map is a JSON object with a number of properties, including `mappings`, which is a string like the one above. [You can find the spec here.](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&pli=1&pli=1))
 
 Suppose we had some CoffeeScript code:
 
@@ -169,7 +169,7 @@ It's through this fairly convoluted process that your browser (assuming it's one
 
 ### Chrome
 
-IMG GOES HERE
+![](https://github.com/Rich-Harris/vlq/blob/master/sourcemaps/Chrome.png)
 
 ### Firefox
 
