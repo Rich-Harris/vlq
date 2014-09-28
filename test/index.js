@@ -1,0 +1,2 @@
+require( './encode' );
+require( './decode' );

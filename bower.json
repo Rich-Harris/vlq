@@ -1,0 +1,13 @@
+{
+	"name": "vlq",
+	"description": "Generate, and decode, base64 VLQ mappings for source maps and other uses",
+	"author": "Rich Harris",
+	"repository": "https://github.com/Rich-Harris/vlq",
+	"version": "0.1.0",
+	"main": "vlq.js",
+	"ignore": [
+		".*",
+		"*.json",
+		"test"
+	]
+}
