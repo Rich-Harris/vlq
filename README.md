@@ -1,10 +1,12 @@
-# vlq
+# vlq.js
 
 Convert integers to a Base64-encoded VLQ string, and vice versa. No dependencies, works in node.js or browsers, supports AMD.
 
+
 ## Why would you want to do that?
 
-Source maps are the most likely use case. Mappings from original source to generated content are encoded as a sequence of VLQ strings.
+Sourcemaps are the most likely use case. Mappings from original source to generated content are encoded as a sequence of VLQ strings.
+
 
 ## What is a VLQ string?
 
@@ -18,6 +20,7 @@ A [variable-length quantity](http://en.wikipedia.org/wiki/Variable-length_quanti
 | 123                 | 2H         |
 | 123456789           | qxmvrH     |
 | 123456789123456789  | gxvh6sB    |
+
 
 ## Installation
 
@@ -55,6 +58,16 @@ vlq.decode( '2HwcqxB' ); // [ 123, 456, 789 ]
 ```
 
 
-## Using vlq.js with source maps
+## Using vlq.js with sourcemaps
 
-*see separate doc...*
+[See here for an example of using vlq.js with sourcemaps.](https://github.com/Rich-Harris/vlq/tree/master/sourcemaps)
+
+
+## Credits
+
+Adapted from [murzwin.com/base64vlq.html](http://murzwin.com/base64vlq.html) by Alexander Pavlov.
+
+
+## License
+
+MIT.
