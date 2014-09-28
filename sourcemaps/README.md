@@ -6,18 +6,16 @@ This library doesn't include any special magic for dealing with source maps, jus
 AAAA;AAAA,EAAA,OAAO,CAAC,GAAR,CAAY,aAAZ,CAAA,CAAA;AAAA
 ```
 
-...into an array of mappings. (A source map is a JSON object with a number of properties, including `mappings`, which is a string like the one above. [You can find the spec here.](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&pli=1&pli=1))
+...into an array of mappings. Suppose we had some CoffeeScript code:
 
-Suppose we had some CoffeeScript code:
-
-** helloworld.coffee **
+**helloworld.coffee**
 ```coffee
 console.log 'hello world'
 ```
 
 It would get transpiled into this:
 
-** helloworld.js **
+**helloworld.js**
 ```js
 (function() {
   console.log('hello world');
@@ -25,7 +23,23 @@ It would get transpiled into this:
 }).call(this);
 ```
 
-The long mapping string above instructs browsers (and other source map consumers) which bits of `helloworld.js` correspond to which bits of `helloworld.coffee`. Each line in the generated JavaScript is represented as a series of VLQ-encoded *segments*, separated by the `,` character. The lines themselves are separated by `;` characters. So we could represent the mapping like so:
+And CoffeeScript would (if you asked it to) generate a sourcemap like this:
+
+```js
+{
+  "version": 3,
+  "file": "helloworld.js",
+  "sources": [
+    "helloworld.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;AAAA,EAAA,OAAO,CAAC,GAAR,CAAY,aAAZ,CAAA,CAAA;AAAA"
+}
+```
+
+(A source map simply a JSON object that adheres to a particular specification, [which you can find here](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&pli=1&pli=1).)
+
+Each line in the generated JavaScript (`helloworld.js`) is represented as a series of VLQ-encoded *segments*, separated by the `,` character. The lines themselves are separated by `;` characters. So we could represent the mapping like so:
 
 ```js
 mappings = 'AAAA;AAAA,EAAA,OAAO,CAAC,GAAR,CAAY,aAAZ,CAAA,CAAA;AAAA';
