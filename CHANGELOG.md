@@ -1,5 +1,9 @@
 # changelog
 
+## 0.2.1
+
+* Performance boost - vlq no longer checks that you've passed a number or an array into `vlq.encode()`, making it significantly faster
+
 ## 0.2.0
 
 * Author as ES6 module, accessible to ES6-aware systems via the `jsnext:main` field in `package.json`
