@@ -2,6 +2,7 @@ var assert = require( 'assert' ),
 	vlq = require( '../' );
 
 var tests = [
+	[ [0x0], 0x0 ],
 	[ [0x40], 0x40 ],
 	[ [0x7f], 0x7f ],
 	[ [0x81, 0], 0x80 ],

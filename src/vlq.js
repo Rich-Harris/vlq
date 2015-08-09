@@ -85,10 +85,14 @@ function encodeInteger ( num ) {
 export function encode8Bit ( num ) {
 	var arr = [], i;
 
+	if ( num === 0 ) {
+		return new Buffer([0]);
+	}
+
 	// Break up num into groups of 7-bit values
-	while (num) {
-	    arr.unshift(num & (127));
-	    num >>= 7;
+	while ( num ) {
+		arr.unshift(num & (127));
+		num >>= 7;
 	}
 
 	// Flip MSB of all 7-bit values except the last one
@@ -102,7 +106,7 @@ export function encode8Bit ( num ) {
 export function decode8Bit ( buffer ) {
 	var num = 0, i;
 
-	if (!Buffer.isBuffer(buffer)) {
+	if ( !Buffer.isBuffer(buffer) ) {
 		buffer = new Buffer(buffer);
 	}
 
