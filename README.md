@@ -57,6 +57,25 @@ vlq.decode( '2H' ); // [ 123 ]
 vlq.decode( '2HwcqxB' ); // [ 123, 456, 789 ]
 ```
 
+### Encoding in 8-bit
+
+`vlq.encode8Bit` accepts an integer and returns a Buffer
+
+```js
+vlq.encode8Bit( 0x7f ); // <Buffer 7f>
+vlq.encode8Bit( 0x80 ); // <Buffer 81 00>
+vlq.encode8Bit( 0x2000 ); // <Buffer c0 00>
+```
+
+### Decoding in 8-bit
+
+`vlq.decode8Bit` accepts a buffer or an array of octets and returns an integer 
+
+```js
+vlq.decode8Bit( [0x7f] ); // 0x7f
+vlq.decode8Bit( [0x81, 0] ); // 0x80
+vlq.decode8Bit( [0xc0, 0] ); // 0x2000
+```
 
 ## Using vlq.js with sourcemaps
 
