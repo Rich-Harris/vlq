@@ -7,14 +7,14 @@ var integerToChar = {};
 });
 
 export function decode ( string ) {
-	var result = [],
-		len = string.length,
-		i,
-		hasContinuationBit,
-		shift = 0,
-		value = 0,
-		integer,
-		shouldNegate;
+	var result = [];
+	var len = string.length;
+	var i;
+	var hasContinuationBit;
+	var shift = 0;
+	var value = 0;
+	var integer;
+	var shouldNegate;
 
 	for ( i = 0; i < len; i += 1 ) {
 		integer = charToInteger[ string[i] ];
