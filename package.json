@@ -9,6 +9,7 @@
   "module": "src/vlq.js",
   "files": [
     "README.md",
+    "LICENSE",
     "src/vlq.js",
     "dist/vlq.js"
   ],
