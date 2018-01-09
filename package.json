@@ -15,10 +15,10 @@
   ],
   "devDependencies": {
     "eslint": "^3.19.0",
-    "rollup": "^0.41.6"
+    "rollup": "^0.53.3"
   },
   "scripts": {
-    "build": "rollup src/vlq.js -n vlq -f umd > dist/vlq.js",
+    "build": "rollup -c",
     "lint": "eslint src",
     "test": "node test",
     "pretest": "npm run build",
