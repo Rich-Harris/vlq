@@ -1,5 +1,5 @@
-var charToInteger: { [char: string]: number } = {};
-var integerToChar: { [integer: number]: string } = {};
+let charToInteger: { [char: string]: number } = {};
+let integerToChar: { [integer: number]: string } = {};
 
 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='.split( '' ).forEach( function ( char, i ) {
 	charToInteger[ char ] = i;
@@ -7,18 +7,18 @@ var integerToChar: { [integer: number]: string } = {};
 });
 
 export function decode ( string: string ): number[] {
-	var result = [];
-	var shift = 0;
-	var value = 0;
+	let result: number[] = [];
+	let shift = 0;
+	let value = 0;
 
-	for ( var i = 0; i < string.length; i += 1 ) {
-		var integer = charToInteger[ string[i] ];
+	for ( let i = 0; i < string.length; i += 1 ) {
+		let integer = charToInteger[ string[i] ];
 
 		if ( integer === undefined ) {
 			throw new Error( 'Invalid character (' + string[i] + ')' );
 		}
 
-		var hasContinuationBit = integer & 32;
+		const hasContinuationBit = integer & 32;
 
 		integer &= 31;
 		value += integer << shift;
@@ -26,7 +26,7 @@ export function decode ( string: string ): number[] {
 		if ( hasContinuationBit ) {
 			shift += 5;
 		} else {
-			var shouldNegate = value & 1;
+			const shouldNegate = value & 1;
 			value >>= 1;
 
 			result.push( shouldNegate ? -value : value );
@@ -40,13 +40,13 @@ export function decode ( string: string ): number[] {
 }
 
 export function encode ( value: number | number[] ): string {
-	var result;
+	let result: string;
 
 	if ( typeof value === 'number' ) {
 		result = encodeInteger( value );
 	} else {
 		result = '';
-		for ( var i = 0; i < value.length; i += 1 ) {
+		for ( let i = 0; i < value.length; i += 1 ) {
 			result += encodeInteger( value[i] );
 		}
 	}
@@ -55,7 +55,7 @@ export function encode ( value: number | number[] ): string {
 }
 
 function encodeInteger ( num: number ): string {
-	var result = '';
+	let result = '';
 
 	if ( num < 0 ) {
 		num = ( -num << 1 ) | 1;
@@ -64,7 +64,7 @@ function encodeInteger ( num: number ): string {
 	}
 
 	do {
-		var clamped = num & 31;
+		let clamped = num & 31;
 		num >>= 5;
 
 		if ( num > 0 ) {
