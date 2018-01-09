@@ -6,12 +6,11 @@
   "license": "MIT",
   "version": "0.2.3",
   "main": "dist/vlq.js",
-  "module": "src/vlq.js",
+  "module": "dist/vlq.es.js",
   "files": [
     "README.md",
     "LICENSE",
-    "src/vlq.js",
-    "dist/vlq.js"
+    "dist/*.js"
   ],
   "devDependencies": {
     "eslint": "^3.19.0",
