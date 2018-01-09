@@ -1,12 +1,12 @@
-var charToInteger = {};
-var integerToChar = {};
+var charToInteger: { [char: string]: number } = {};
+var integerToChar: { [integer: number]: string } = {};
 
 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='.split( '' ).forEach( function ( char, i ) {
 	charToInteger[ char ] = i;
 	integerToChar[ i ] = char;
 });
 
-export function decode ( string ) {
+export function decode ( string: string ): number[] {
 	var result = [];
 	var shift = 0;
 	var value = 0;
@@ -39,7 +39,7 @@ export function decode ( string ) {
 	return result;
 }
 
-export function encode ( value ) {
+export function encode ( value: number | number[] ): string {
 	var result;
 
 	if ( typeof value === 'number' ) {
@@ -54,7 +54,7 @@ export function encode ( value ) {
 	return result;
 }
 
-function encodeInteger ( num ) {
+function encodeInteger ( num: number ): string {
 	var result = '';
 
 	if ( num < 0 ) {
