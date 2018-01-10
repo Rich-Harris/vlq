@@ -6,19 +6,22 @@
   "license": "MIT",
   "version": "0.2.3",
   "main": "dist/vlq.js",
-  "module": "src/vlq.js",
+  "module": "dist/vlq.es.js",
+  "types": "dist/types/vlq.d.ts",
   "files": [
     "README.md",
     "LICENSE",
-    "src/vlq.js",
-    "dist/vlq.js"
+    "dist/*.js",
+    "dist/**/*.d.ts"
   ],
   "devDependencies": {
     "eslint": "^3.19.0",
-    "rollup": "^0.41.6"
+    "rollup": "^0.53.3",
+    "rollup-plugin-typescript": "^0.8.1",
+    "typescript": "^2.6.2"
   },
   "scripts": {
-    "build": "rollup src/vlq.js -n vlq -f umd > dist/vlq.js",
+    "build": "rollup -c && tsc",
     "lint": "eslint src",
     "test": "node test",
     "pretest": "npm run build",
