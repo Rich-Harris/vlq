@@ -4,7 +4,7 @@
   "author": "Rich Harris",
   "repository": "https://github.com/Rich-Harris/vlq",
   "license": "MIT",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "main": "dist/vlq.js",
   "module": "dist/vlq.es.js",
   "types": "dist/types/vlq.d.ts",
