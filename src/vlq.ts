@@ -27,9 +27,13 @@ export function decode ( string: string ): number[] {
 			shift += 5;
 		} else {
 			const shouldNegate = value & 1;
-			value >>= 1;
+			value >>>= 1;
 
-			result.push( shouldNegate ? -value : value );
+			if (shouldNegate) {
+				result.push( value === 0 ? -0x80000000 : -value );
+			} else {
+				result.push(value);
+			}
 
 			// reset
 			value = shift = 0;
@@ -65,7 +69,7 @@ function encodeInteger ( num: number ): string {
 
 	do {
 		let clamped = num & 31;
-		num >>= 5;
+		num >>>= 5;
 
 		if ( num > 0 ) {
 			clamped |= 32;
