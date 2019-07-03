@@ -3,7 +3,10 @@ var assert = require( 'assert' ),
 
 var tests = [
 	[ [ 0, 0, 0, 0 ], 'AAAA' ],
-	[ [ 0, 0, 16, 1 ], 'AAgBC' ]
+	[ [ 0, 0, 16, 1 ], 'AAgBC' ],
+	[ [ -1 ], 'D' ],
+	[ [ -2147483648 ], 'B' ],
+	[ [ 2147483647 ], '+/////D' ]
 ];
 
 tests.forEach( function ( test ) {
