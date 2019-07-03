@@ -1,5 +1,9 @@
 # changelog
 
+## 1.0.1
+
+* Handle overflow cases ([#9](https://github.com/Rich-Harris/vlq/pull/9))
+
 ## 1.0.0
 
 * Rewrite in TypeScript, include definitions in package ([#6](https://github.com/Rich-Harris/vlq/pull/6))

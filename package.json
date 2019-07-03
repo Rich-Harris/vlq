@@ -4,7 +4,7 @@
   "author": "Rich Harris",
   "repository": "https://github.com/Rich-Harris/vlq",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/vlq.js",
   "module": "dist/vlq.es.js",
   "types": "dist/types/vlq.d.ts",
@@ -15,10 +15,10 @@
     "dist/**/*.d.ts"
   ],
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "rollup": "^0.53.3",
-    "rollup-plugin-typescript": "^0.8.1",
-    "typescript": "^2.6.2"
+    "eslint": "^6.0.1",
+    "rollup": "^1.16.4",
+    "rollup-plugin-typescript": "^1.0.1",
+    "typescript": "^3.5.2"
   },
   "scripts": {
     "build": "rollup -c && tsc",
