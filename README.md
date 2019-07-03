@@ -19,7 +19,6 @@ A [variable-length quantity](http://en.wikipedia.org/wiki/Variable-length_quanti
 | -1                  | D          |
 | 123                 | 2H         |
 | 123456789           | qxmvrH     |
-| 123456789123456789  | gxvh6sB    |
 
 
 ## Installation
@@ -56,6 +55,11 @@ vlq.encode([ 123, 456, 789 ]); // '2HwcqxB'
 vlq.decode( '2H' ); // [ 123 ]
 vlq.decode( '2HwcqxB' ); // [ 123, 456, 789 ]
 ```
+
+
+## Limitations
+
+Since JavaScript bitwise operators work on 32 bit integers, the maximum value this library can handle is 2^30 - 1, or 1073741823.
 
 
 ## Using vlq.js with sourcemaps
