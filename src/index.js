@@ -1,14 +1,14 @@
 /** @type {Record<string, number>} */
-let charToInteger = {};
+let char_to_integer = {};
 
 /** @type {Record<number, string>} */
-let integerToChar = {};
+let integer_to_char = {};
 
 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 	.split('')
 	.forEach(function (char, i) {
-		charToInteger[char] = i;
-		integerToChar[i] = char;
+		char_to_integer[char] = i;
+		integer_to_char[i] = char;
 	});
 
 /** @param {string} string */
@@ -20,24 +20,24 @@ export function decode(string) {
 	let value = 0;
 
 	for (let i = 0; i < string.length; i += 1) {
-		let integer = charToInteger[string[i]];
+		let integer = char_to_integer[string[i]];
 
 		if (integer === undefined) {
 			throw new Error('Invalid character (' + string[i] + ')');
 		}
 
-		const hasContinuationBit = integer & 32;
+		const has_continuation_bit = integer & 32;
 
 		integer &= 31;
 		value += integer << shift;
 
-		if (hasContinuationBit) {
+		if (has_continuation_bit) {
 			shift += 5;
 		} else {
-			const shouldNegate = value & 1;
+			const should_negate = value & 1;
 			value >>>= 1;
 
-			if (shouldNegate) {
+			if (should_negate) {
 				result.push(value === 0 ? -0x80000000 : -value);
 			} else {
 				result.push(value);
@@ -54,19 +54,19 @@ export function decode(string) {
 /** @param {number | number[]} value */
 export function encode(value) {
 	if (typeof value === 'number') {
-		return encodeInteger(value);
+		return encode_integer(value);
 	}
 
 	let result = '';
 	for (let i = 0; i < value.length; i += 1) {
-		result += encodeInteger(value[i]);
+		result += encode_integer(value[i]);
 	}
 
 	return result;
 }
 
 /** @param {number} num */
-function encodeInteger(num) {
+function encode_integer(num) {
 	let result = '';
 
 	if (num < 0) {
@@ -83,7 +83,7 @@ function encodeInteger(num) {
 			clamped |= 32;
 		}
 
-		result += integerToChar[clamped];
+		result += integer_to_char[clamped];
 	} while (num > 0);
 
 	return result;
