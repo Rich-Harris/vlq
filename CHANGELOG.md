@@ -1,5 +1,9 @@
 # changelog
 
+## 2.0.2
+
+- Package admin
+
 ## 2.0.1
 
 - Fix build
