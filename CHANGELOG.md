@@ -1,5 +1,9 @@
 # changelog
 
+## 2.0.1
+
+- Fix build
+
 ## 2.0.0
 
 - Convert package to ESM, add `pkg.exports` ([#16](https://github.com/Rich-Harris/vlq/pull/16))

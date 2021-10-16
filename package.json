@@ -27,6 +27,6 @@
 	"scripts": {
 		"build": "rollup -c && tsc",
 		"test": "node test",
-		"prepublish": "npm test"
+		"prepublishOnly": "npm test && npm run build"
 	}
 }
