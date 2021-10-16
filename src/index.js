@@ -1,15 +1,21 @@
-let charToInteger: { [char: string]: number } = {};
-let integerToChar: { [integer: number]: string } = {};
+/** @type {Record<string, number>} */
+let charToInteger = {};
+
+/** @type {Record<number, string>} */
+let integerToChar = {};
 
 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 	.split('')
-	.forEach(function(char, i) {
+	.forEach(function (char, i) {
 		charToInteger[char] = i;
 		integerToChar[i] = char;
 	});
 
-export function decode(string: string): number[] {
-	let result: number[] = [];
+/** @param {string} string */
+export function decode(string) {
+	/** @type {number[]} */
+	let result = [];
+
 	let shift = 0;
 	let value = 0;
 
@@ -45,22 +51,22 @@ export function decode(string: string): number[] {
 	return result;
 }
 
-export function encode(value: number | number[]): string {
-	let result: string;
-
+/** @param {number | number[]} value */
+export function encode(value) {
 	if (typeof value === 'number') {
-		result = encodeInteger(value);
-	} else {
-		result = '';
-		for (let i = 0; i < value.length; i += 1) {
-			result += encodeInteger(value[i]);
-		}
+		return encodeInteger(value);
+	}
+
+	let result = '';
+	for (let i = 0; i < value.length; i += 1) {
+		result += encodeInteger(value[i]);
 	}
 
 	return result;
 }
 
-function encodeInteger(num: number): string {
+/** @param {number} num */
+function encodeInteger(num) {
 	let result = '';
 
 	if (num < 0) {

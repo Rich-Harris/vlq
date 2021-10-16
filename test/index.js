@@ -1,2 +1,2 @@
-require( './encode' );
-require( './decode' );
+import './encode.js';
+import './decode.js';
