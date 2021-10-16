@@ -1,18 +1,16 @@
 {
 	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
 		"noImplicitAny": true,
 		"diagnostics": true,
 		"noImplicitThis": true,
-		"noEmitOnError": true,
-		"target": "es5",
-		"lib": ["es5", "es6"],
+		"target": "esnext",
 		"declaration": true,
-		"outDir": "dist/types"
+		"emitDeclarationOnly": true,
+		"outDir": "types",
+		"noEmit": false
 	},
-	"include": [
-		"src"
-	],
-	"exclude": [
-		"node_modules"
-	]
+	"include": ["src"],
+	"exclude": ["node_modules"]
 }
