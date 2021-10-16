@@ -27,14 +27,6 @@ A [variable-length quantity](http://en.wikipedia.org/wiki/Variable-length_quanti
 npm install vlq
 ```
 
-...or...
-
-```bash
-bower install vlq
-```
-
-...or grab the vlq.js file and include it with a `<script src='vlq.js'>` tag.
-
 
 ## Usage
 
@@ -43,8 +35,8 @@ bower install vlq
 `vlq.encode` accepts an integer, or an array of integers, and returns a string:
 
 ```js
-vlq.encode( 123 ); // '2H';
-vlq.encode([ 123, 456, 789 ]); // '2HwcqxB'
+vlq.encode(123); // '2H';
+vlq.encode([123, 456, 789]); // '2HwcqxB'
 ```
 
 ### Decoding
@@ -52,8 +44,8 @@ vlq.encode([ 123, 456, 789 ]); // '2HwcqxB'
 `vlq.decode` accepts a string and always returns an array:
 
 ```js
-vlq.decode( '2H' ); // [ 123 ]
-vlq.decode( '2HwcqxB' ); // [ 123, 456, 789 ]
+vlq.decode('2H'); // [123]
+vlq.decode('2HwcqxB'); // [123, 456, 789]
 ```
 
 
