@@ -1,5 +1,9 @@
 # changelog
 
+## 2.0.3
+
+- Fix package entry points
+
 ## 2.0.2
 
 - Package admin
