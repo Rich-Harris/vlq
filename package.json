@@ -9,6 +9,7 @@
 	"exports": {
 		"./package.json": "./package.json",
 		".": {
+			"types": "./types/index.d.ts",
 			"import": "./src/index.js",
 			"require": "./dist/index.cjs"
 		}
