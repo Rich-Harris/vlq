@@ -9,8 +9,14 @@
 	"exports": {
 		"./package.json": "./package.json",
 		".": {
-			"import": "./src/index.js",
-			"require": "./dist/index.cjs"
+			"import": {
+				"types": "./types/index.d.ts",
+				"default": "./src/index.js"
+			},
+			"require": {
+				"types": "./types/index.d.ts",
+				"default": "./dist/index.cjs"
+			}
 		}
 	},
 	"main": "dist/index.cjs",
@@ -26,7 +32,7 @@
 		"typescript": "^4.4.4"
 	},
 	"scripts": {
-		"build": "rm -rf dist && rollup -c && tsc",
+		"build": "node -e \"fs.rmSync('./dist', {recursive: true, force: true})\" && rollup -c && tsc",
 		"test": "node test",
 		"prepublishOnly": "npm test && npm run build"
 	},
