@@ -19,7 +19,6 @@ It would get transpiled into this:
 ```js
 (function() {
   console.log('hello world');
-
 }).call(this);
 ```
 
@@ -38,7 +37,7 @@ And CoffeeScript would (if you asked it to) generate a sourcemap like this:
 }
 ```
 
-(A source map simply a JSON object that adheres to a particular specification, [which you can find here](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?hl=en_US&pli=1&pli=1).)
+(A source map simply a JSON object that adheres to a particular specification, [ECMA-426](https://tc39.es/ecma426/).)
 
 Each line in the generated JavaScript (`helloworld.js`) is represented as a series of VLQ-encoded *segments*, separated by the `,` character. The lines themselves are separated by `;` characters. So we could represent the mapping like so:
 
